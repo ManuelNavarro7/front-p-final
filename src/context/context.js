@@ -76,7 +76,7 @@ const CustomProvider = ({ children }) => {
   }
   async function getCarrito() {
     try {
-      const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/carritos/userid',{withCredentials:true});
+      const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/carritos/userid');
       
       console.log(`3 ${JSON.stringify(response)}`)
       setUserLog(response.data.user)
@@ -92,7 +92,7 @@ const CustomProvider = ({ children }) => {
   }
   async function getCarritoFacturacion() {
     try {
-      const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/carritos/userid',{withCredentials:true});
+      const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/carritos/userid');
     
       setResp(response.data.carritos) 
       
@@ -114,7 +114,7 @@ const CustomProvider = ({ children }) => {
       
       if(response.data.carritos.length === 0 ||response.data.carritos ===[]){
        
-        const response1 = await axios.post('https://api-entrega-final-production.up.railway.app/api/carritos/agregarcarrito',cart,{withCredentials:true});
+        const response1 = await axios.post('https://api-entrega-final-production.up.railway.app/api/carritos/agregarcarrito',cart);
         setResponseTest(response1)
         // setCarritoId(response1.data.carritos[0]._id)
        }else{
@@ -133,7 +133,7 @@ const CustomProvider = ({ children }) => {
   }
   async function getProducts() {
     try {
-      const response2 = await axios.get('https://api-entrega-final-production.up.railway.app/api/productos',{withCredentials:true});
+      const response2 = await axios.get('https://api-entrega-final-production.up.railway.app/api/productos');
      
       setProductos(response2.data.productos) 
       
@@ -153,7 +153,7 @@ let AddToCart =async (event)=>{
     }
     
     
-    const response = await axios.post(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/productos`,idProd,{withCredentials:true});
+    const response = await axios.post(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/productos`,idProd);
     await getCarrito()
     
   
@@ -172,7 +172,7 @@ let AddToProductToCartFromCart =async (event)=>{
     }
     
    
-    const response = await axios.post(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/productos/cart`,idProd,{withCredentials:true});
+    const response = await axios.post(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/productos/cart`,idProd);
     await getCarrito()
     
    
@@ -192,7 +192,7 @@ let RemoveProductFromCartFromCart =async (event)=>{
     }
    
     
-    const response = await axios.delete(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/productos/cart/${ProductoId}`,idProd,{withCredentials:true});
+    const response = await axios.delete(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/productos/cart/${ProductoId}`,idProd);
     await getCarrito()
    
   
@@ -215,7 +215,7 @@ let Facturacion =async (event)=>{
   }
   
   try{ 
-    const responseFacturacion = await axios.post(`https://api-entrega-final-production.up.railway.app/api/facturacion`,cartToSend,{withCredentials:true});
+    const responseFacturacion = await axios.post(`https://api-entrega-final-production.up.railway.app/api/facturacion`,cartToSend);
    
     // console.log(responseFacturacion.data[0]._id)
     //ver id de facturacion para el mail
@@ -231,7 +231,7 @@ let Facturacion =async (event)=>{
       idFactura:IDFACTURACION,
     }
 
-    const response = await axios.post(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/facturacion`,cartToSend2,{withCredentials:true});
+    const response = await axios.post(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/facturacion`,cartToSend2);
     // console.log(response.status)
     
 
@@ -251,7 +251,7 @@ let Facturacion =async (event)=>{
   async function LoginUser(dataObj) {
     try {
       
-      const response = await axios.post('https://api-entrega-final-production.up.railway.app/api/session/login',dataObj,{withCredentials:true});
+      const response = await axios.post('https://api-entrega-final-production.up.railway.app/api/session/login',dataObj);
       console.log(`1 ${JSON.stringify(response)}`)
       
       setRespLogin(response)
@@ -301,7 +301,7 @@ let Facturacion =async (event)=>{
   const logOut= async(event) => {
     try{ 
     
-      const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/session/logout',{withCredentials:true});
+      const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/session/logout');
    
     }catch (error) {
       console.error(error);
