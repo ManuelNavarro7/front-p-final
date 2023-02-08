@@ -64,7 +64,7 @@ const CustomProvider = ({ children }) => {
     try {
       
       
-      const response = await axios.post('https://api-entrega-final-production.up.railway.app/api/session/signup',{withCredentials:true},dataObj);
+      const response = await axios.post('https://api-entrega-final-production.up.railway.app/api/session/signup',dataObj);
       console.log(`2 ${JSON.stringify(response)}`)
       
       await setRespGetUser(response)
