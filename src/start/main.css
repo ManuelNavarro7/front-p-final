@@ -1,0 +1,47 @@
+.LoginContainer{
+    margin:0;
+    padding: 0;
+    width:100%;
+    height:800px;
+}
+.Form1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.LoginOut1{
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.CardLogin1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 40px 60px 30px 60px;
+    box-shadow: 10px 10px 15px 10px rgba(0,0,0,0.1);
+}
+.TitleRegistration{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Msg{
+    font-size: 18px;
+}
+.OutSideBanner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.SVGIMG{
+    height: 450px;
+    width: 300px;
+}
