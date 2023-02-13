@@ -63,7 +63,7 @@ const CustomProvider = ({ children }) => {
 
   async function getUser(dataObj) {
     try {
-      
+      console.log("Helllloooo")
       
       const response = await axios.post('http://localhost:8080/api/session/signup',dataObj);
       // console.log(`2 ${JSON.stringify(response)}`)
