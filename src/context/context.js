@@ -31,7 +31,7 @@ const CustomProvider = ({ children }) => {
 
   let URLAPI ='https://api-entrega-final-production.up.railway.app/'
 
-  axios.defaults.headers.common['Authorization'] = `Bearer ${RespLogin}` ; 
+  // axios.defaults.headers.common['Authorization'] = `Bearer ${RespLogin}` ; 
  
   
   const getTotal = () =>{
