@@ -77,7 +77,12 @@ const CustomProvider = ({ children }) => {
   }
   async function getCarrito() {
     try {
-      const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/carritos/userid',{withCredentials:true});
+      const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/carritos/userid',{
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + RespGetUser
+        }
+      });
       
       console.log(`3 ${JSON.stringify(response)}`)
       setUserLog(response.data.user)
