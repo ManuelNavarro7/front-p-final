@@ -255,8 +255,8 @@ let Facturacion =async (event)=>{
     try {
       
       const response = await axios.post('https://api-entrega-final-production.up.railway.app/api/session/login',dataObj);
-      console.log(`1 ${JSON.stringify(response)}`)
-      
+      console.log(`1 ${response.data.access_token}`)
+      console.log(response.data.access_token)
       setRespLogin(response)
      
      
