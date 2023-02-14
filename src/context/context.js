@@ -242,7 +242,7 @@ let Facturacion =async (event)=>{
   }
   
   try{ 
-    const responseFacturacion = await axios.post(`https://api-entrega-final-production.up.railway.app/api/facturacion`,cartToSend,{
+    const responseFacturacion = await axios.post('https://api-entrega-final-production.up.railway.app/api/facturacion',cartToSend,{
       headers: {
         'Authorization': `Bearer ${RespLogin}`
       }
