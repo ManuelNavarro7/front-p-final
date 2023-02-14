@@ -38,13 +38,13 @@ export default function Login() {
   </div>
 
     <div>
-       {RespLogin.length !=0 || RespLogin.length == undefined  ? <Modal open={open} onClose={handleClose}>
+       {RespLogin.length !=0 ? <Modal open={open} onClose={handleClose}>
         <Modal.Header>
           <Modal.Title>We have some news</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           
-        {RespLogin.length !=0 || RespLogin.length == undefined  ?<h1 className="Msg">Welcome</h1> : <h1 className="Msg">Something went wrong please try again</h1>}
+        {RespLogin.length !=0 ?<h1 className="Msg">Welcome</h1> : <h1 className="Msg">Something went wrong please try again</h1>}
         </Modal.Body>
         <Modal.Footer>
         <NavLink to ={`/store`}> <Button onClick={handleClose} appearance="primary">
