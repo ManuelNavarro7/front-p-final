@@ -17,7 +17,7 @@ const CustomProvider = ({ children }) => {
   const [open, setOpen] = React.useState(false);
   let [Resp,setResp]= useState({data:{message:"ki"}})
   let [RespGetUser,setRespGetUser]= useState({data:{message:"ki"}})
-  let [RespLogin,setRespLogin]= useState({data:{message:"ki"}})
+  let [RespLogin,setRespLogin]= useState(0)
   let [userLog,setUserLog]= useState("")
   let [Productos, setProductos]=useState(0)
   let [ CarritoId,setCarritoId]=useState()

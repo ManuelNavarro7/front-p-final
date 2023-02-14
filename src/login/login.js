@@ -44,7 +44,7 @@ export default function Login() {
         </Modal.Header>
         <Modal.Body>
           
-        {RespLogin.data.message=="Is authenticated"?<h1 className="Msg">Welcome</h1> : <h1 className="Msg">Something went wrong please try again</h1>}
+        {RespLogin.length !=0 ?<h1 className="Msg">Welcome</h1> : <h1 className="Msg">Something went wrong please try again</h1>}
         </Modal.Body>
         <Modal.Footer>
         <NavLink to ={`/store`}> <Button onClick={handleClose} appearance="primary">
