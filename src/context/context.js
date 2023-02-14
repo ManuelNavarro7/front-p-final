@@ -52,6 +52,13 @@ const CustomProvider = ({ children }) => {
   
   },[ResponseTest])
 
+  useEffect(()=>{
+
+    CrearCarrito()
+   
+  
+  },[RespLogin])
+
   // useEffect(() => {
   //   socket.on('connect', () => {
   //    console.log("Connected IO");
@@ -80,7 +87,7 @@ const CustomProvider = ({ children }) => {
       const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/carritos/userid',{
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + RespGetUser
+          'Authorization': 'Bearer ' + RespLogin
         }
       });
       
@@ -115,14 +122,14 @@ const CustomProvider = ({ children }) => {
   async function CrearCarrito() {
     try {
 
+      console.log(RespLogin)
       const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/carritos/userid',{
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${RespGetUser}`
+          'Authorization': `Bearer ${RespLogin}`
         }
       });
 
-
+      // console.log(`Bearer ${RespLogin}`)
       ///////////////////////////////
       console.log(response)
       setUserLog(response.data.user)
@@ -130,7 +137,11 @@ const CustomProvider = ({ children }) => {
       
       if(response.data.carritos.length === 0 ||response.data.carritos ===[]){
        
-        const response1 = await axios.post('https://api-entrega-final-production.up.railway.app/api/carritos/agregarcarrito',cart,{withCredentials:true});
+        const response1 = await axios.post('https://api-entrega-final-production.up.railway.app/api/carritos/agregarcarrito',cart,{
+          headers: {
+            'Authorization': `Bearer ${RespLogin}`
+          }
+        });
         setResponseTest(response1)
         // setCarritoId(response1.data.carritos[0]._id)
        }else{
@@ -149,7 +160,7 @@ const CustomProvider = ({ children }) => {
   }
   async function getProducts() {
     try {
-      const response2 = await axios.get('https://api-entrega-final-production.up.railway.app/api/productos',{withCredentials:true});
+      const response2 = await axios.get('https://api-entrega-final-production.up.railway.app/api/productos');
      
       setProductos(response2.data.productos) 
       
@@ -231,7 +242,11 @@ let Facturacion =async (event)=>{
   }
   
   try{ 
-    const responseFacturacion = await axios.post(`https://api-entrega-final-production.up.railway.app/api/facturacion`,cartToSend,{withCredentials:true});
+    const responseFacturacion = await axios.post(`https://api-entrega-final-production.up.railway.app/api/facturacion`,cartToSend,{
+      headers: {
+        'Authorization': `Bearer ${RespLogin}`
+      }
+    });
    
     // console.log(responseFacturacion.data[0]._id)
     //ver id de facturacion para el mail
@@ -247,7 +262,11 @@ let Facturacion =async (event)=>{
       idFactura:IDFACTURACION,
     }
 
-    const response = await axios.post(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/facturacion`,cartToSend2,{withCredentials:true});
+    const response = await axios.post(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/facturacion`,cartToSend2,{
+      headers: {
+        'Authorization': `Bearer ${RespLogin}`
+      }
+    });
     // console.log(response.status)
     
 
@@ -269,9 +288,11 @@ let Facturacion =async (event)=>{
       
       const response = await axios.post('https://api-entrega-final-production.up.railway.app/api/session/login',dataObj);
       // console.log(`1 ${response.data.access_token}`)
-      console.log(response.data.access_token)
+      // console.log(response.data.access_token)
 
-      setRespLogin(response.data.access_token)
+      let token = response.data.access_token
+      // console.log(token)
+      setRespLogin(token)
      
      
       
@@ -303,7 +324,7 @@ let Facturacion =async (event)=>{
     const dataObj = Object.fromEntries(formData);
     
     await LoginUser(dataObj)
-    await CrearCarrito()
+    // await CrearCarrito()
     await getProducts()
 
     
