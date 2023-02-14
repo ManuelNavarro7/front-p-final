@@ -38,7 +38,7 @@ export default function Login() {
   </div>
 
     <div>
-       {RespLogin.data.message=="Is authenticated"? <Modal open={open} onClose={handleClose}>
+       {RespLogin.length !=0 ? <Modal open={open} onClose={handleClose}>
         <Modal.Header>
           <Modal.Title>We have some news</Modal.Title>
         </Modal.Header>
