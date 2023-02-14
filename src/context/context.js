@@ -118,7 +118,7 @@ const CustomProvider = ({ children }) => {
       const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/carritos/userid',{
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + RespGetUser
+          'Authorization': `Bearer ${RespGetUser}`
         }
       });
 
