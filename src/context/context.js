@@ -91,7 +91,7 @@ const CustomProvider = ({ children }) => {
         }
       });
       
-      console.log(`3 ${JSON.stringify(response)}`)
+      // console.log(`3 ${JSON.stringify(response)}`)
       setUserLog(response.data.user)
       setResp(response.data.carritos) 
       
@@ -107,7 +107,7 @@ const CustomProvider = ({ children }) => {
     try {
 
       
-      const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/carritos/userid',{withCredentials:true});
+      const response = await axios.get('https://api-entrega-final-production.up.railway.app/api/carritos/userid');
     
       setResp(response.data.carritos) 
       
@@ -199,7 +199,7 @@ let AddToProductToCartFromCart =async (event)=>{
     }
     
    
-    const response = await axios.post(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/productos/cart`,idProd,{withCredentials:true});
+    const response = await axios.post(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/productos/cart`,idProd);
     await getCarrito()
     
    
@@ -219,7 +219,7 @@ let RemoveProductFromCartFromCart =async (event)=>{
     }
    
     
-    const response = await axios.delete(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/productos/cart/${ProductoId}`,idProd,{withCredentials:true});
+    const response = await axios.delete(`https://api-entrega-final-production.up.railway.app/api/carritos/${CarritoId}/productos/cart/${ProductoId}`,idProd);
     await getCarrito()
    
   
