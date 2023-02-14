@@ -32,6 +32,7 @@ export default function Main() {
               <img className="SVGIMG" src={Team} alt="SVG as an image"></img>
              
               </div>
+              <div className="d-flex flex-column justify-content-center align-itmes-center">
               <form onSubmit={handleOpen} className="Form1">
                 <div> Username</div>
                 <input id="username" name="username"></input>
@@ -47,6 +48,11 @@ export default function Main() {
                 <Button type="submit" color="violet" appearance="primary" /*onClick={handleOpen}*/> Sign-Up</Button>
                 </ButtonToolbar>
               </form>
+              <NavLink className="d-flex flex-column justify-content-center align-itmes-center mt-3" to ={`/login`}> <Button appearance="primary">
+                      Login
+                    </Button>
+              </NavLink>
+              </div>
            </div>
         </div>
       </div>
